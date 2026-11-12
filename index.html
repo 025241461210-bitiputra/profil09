@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Futsal - Iputra</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07152c;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: #091b35;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      padding: 65px 8%;
+      background: linear-gradient(120deg, #07152c, #102c50);
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h4 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      padding: 14px 25px;
+      border-radius: 7px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero-image {
+      width: 340px;
+      height: 430px;
+      border: 3px solid #60a5fa;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .judul {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .garis {
+      width: 65px;
+      height: 4px;
+      background: #60a5fa;
+      margin-bottom: 35px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .about p {
+      color: #cbd5e1;
+      line-height: 1.9;
+    }
+
+    .data {
+      background: #102746;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .data p {
+      padding: 12px 0;
+      border-bottom: 1px solid #29415f;
+    }
+
+    .data strong {
+      color: #60a5fa;
+    }
+
+    #prestasi {
+      background: #0b1e38;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #102746;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card iframe {
+      width: 100%;
+      height: 240px;
+      border: none;
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    .card h3 {
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    #skill {
+      text-align: center;
+    }
+
+    .ball-area {
+      background: #102746;
+      border-radius: 18px;
+      padding: 35px 20px;
+    }
+
+    .ball-container {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: #07152c;
+      border: 2px solid #2563eb;
+      border-radius: 15px;
+      margin: 25px 0;
+    }
+
+    .football {
+      position: absolute;
+      font-size: 42px;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+
+    .ball-button {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 14px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 8px;
+    }
+
+    #ballCount {
+      font-size: 30px;
+      color: #60a5fa;
+    }
+
+    .contact {
+      text-align: center;
+      background: #102746;
+      border-radius: 15px;
+      padding: 40px 20px;
+    }
+
+    .contact p {
+      color: #cbd5e1;
+      margin: 15px;
+    }
+
+    .contact a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #091b35;
+      color: #94a3b8;
+    }
+
+    @media(max-width: 800px) {
+      nav {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      nav a {
+        margin: 5px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .about,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">MY FUTSAL.</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">Profil</a>
+      <a href="#prestasi">Galeri</a>
+      <a href="#skill">Skill</a>
+      <a href="#contact">Kontak</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-text">
+      <h4>WELCOME TO MY PORTFOLIO</h4>
+      <h1>FUTSAL PLAYER <span>PORTFOLIO</span></h1>
+      <p>
+        Saya merupakan pemain futsal yang memiliki
+        passion dalam dunia olahraga. Bermain sebagai
+        Pivot dan terus mengembangkan kemampuan,
+        kerja sama, serta disiplin.
+      </p>
+      <a href="#about" class="btn">LIHAT PROFIL SAYA</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="foto-profil.jpg" alt="Foto profil futsal">
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 class="judul">TENTANG SAYA</h2>
+    <div class="garis"></div>
+
+    <div class="about">
+      <div>
+        <h2>Passion, Teamwork, Discipline.</h2>
+        <br>
+        <p>
+          Saya merupakan mahasiswa yang memiliki
+          ketertarikan besar terhadap olahraga futsal.
+          Saya bermain sebagai Pivot dan aktif
+          mengembangkan kemampuan bersama tim futsal.
+        </p>
+      </div>
+
+      <div class="data">
+        <p><strong>Nama:</strong> Iputra</p>
+        <p><strong>Kampus:</strong> Sekolah Tinggi Multimedia</p>
+        <p><strong>Program Studi:</strong> Manajemen Informasi Komunikasi</p>
+        <p><strong>Posisi:</strong> Pivot</p>
+        <p><strong>Tim:</strong> Tim Futsal Kampus</p>
+        <p><strong>Kompetisi:</strong> Campus League Yogyakarta</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prestasi">
+    <h2 class="judul">GALERI FOTO & VIDEO</h2>
+    <div class="garis"></div>
+    <div class="cards" id="gallery"></div>
+  </section>
+
+  <section id="skill">
+    <h2 class="judul">INTERACTIVE FOOTBALL</h2>
+    <div class="garis"></div>
+
+    <div class="ball-area">
+      <h2>⚽ Football Click Challenge</h2>
+      <p>Klik bola untuk menambah jumlah bola!</p>
+
+      <div id="ballCount">1</div>
+      <p>Total Bola</p>
+
+      <div class="ball-container" id="ballContainer">
+        <span class="football"
+          style="left:50%;top:50%"
+          onclick="addBalls()">⚽</span>
+      </div>
+
+      <button class="ball-button" onclick="addBalls()">
+        TAMBAH BOLA ⚽
+      </button>
+
+      <button class="ball-button" onclick="resetBalls()">
+        RESET BOLA
+      </button>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2 class="judul">LET'S CONNECT</h2>
+
+      <p>Terima kasih telah mengunjungi portfolio saya.</p>
+
+      <p>
+        WhatsApp:
+        <a href="https://wa.me/6282178318927">
+          0821-7831-8927
+        </a>
+      </p>
+
+      <p>
+        Instagram:
+        <a href="https://instagram.com/iputraaa.__">
+          @iputraaa.__
+        </a>
+      </p>
+
+      <p>
+        Email:
+        <a href="mailto:yusufanrulaiputra@gmail.com">
+          yusufanrulaiputra@gmail.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Personal Futsal Portfolio</p>
+    <p>Built with passion ⚽</p>
+  </footer>
+
+  <script>
+    const files = [
+      "1yKIvcbRIRpIATykAWDHT5iULMm_vby37",
+      "1r6oEbix4uKqlbljHRA7a5cWDk_xS-NDl",
+      "1KmzqxdBz3HkN0yT3Yivl3nDTOazP80tD",
+      "1p0RNWRl7NsjEM_vAwkmF5kLqYfwyKSLL",
+      "1cHSOFNQTZqElcQ85AGPZ7V3678KHyiNF",
+      "1ViDnrUMcKlqsSeZTYVxHtT3tY3vOsrdt",
+      "1QsI6HM7yGjeb2xkwpkQ_-ILsMk9GO3-6",
+      "1RCiRsyC4rftE2UaM7ASKj2FlHlOnlrJI",
+      "1gYKEx_kW9Eg611B1OboiNOtrTPUL44gr",
+      "1DmIeZ3uove7-N-9RCNvuhQpdVxoTY0qY",
+      "1rHlVMnIObkkq2BwesCncnb8nT6xujTS3"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    files.forEach((id, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <iframe
+          src="https://drive.google.com/file/d/${id}/preview"
+          title="Dokumentasi futsal ${index + 1}"
+          allowfullscreen>
+        </iframe>
+
+        <div class="card-content">
+          <h3>Futsal Moment ${index + 1}</h3>
+          <p>Dokumentasi perjalanan dan pertandingan futsal.</p>
+        </div>
+      `;
+
+      gallery.appendChild(card);
+    });
+
+    let totalBalls = 1;
+
+    const container =
+      document.getElementById("ballContainer");
+
+    const counter =
+      document.getElementById("ballCount");
+
+    function addBalls() {
+      for (let i = 0; i < 5; i++) {
+        if (totalBalls >= 60) break;
+
+        const ball = document.createElement("span");
+
+        ball.className = "football";
+        ball.textContent = "⚽";
+
+        ball.style.left = (5 + Math.random() * 90) + "%";
+        ball.style.top = (8 + Math.random() * 84) + "%";
+
+        ball.onclick = addBalls;
+
+        container.appendChild(ball);
+        totalBalls++;
+      }
+
+      counter.textContent = totalBalls;
+    }
+
+    function resetBalls() {
+      container.innerHTML = "";
+      totalBalls = 1;
+
+      const ball = document.createElement("span");
+
+      ball.className = "football";
+      ball.textContent = "⚽";
+      ball.style.left = "50%";
+      ball.style.top = "50%";
+      ball.onclick = addBalls;
+
+      container.appendChild(ball);
+      counter.textContent = totalBalls;
+    }
+  </script>
+
+</body>
+</html>
